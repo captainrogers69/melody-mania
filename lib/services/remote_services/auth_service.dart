@@ -17,13 +17,11 @@ class AuthService implements BaseAuthenticationService {
   final Ref _ref;
   AuthService(this._ref);
 
-  static final GoogleSignIn _googleSignIn = GoogleSignIn(
-    signInOption: SignInOption.standard,
-    forceCodeForRefreshToken: true,
-  );
-
-  static Future<GoogleSignInAccount?> initGooglesignIn() async {
-    final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+  Future<GoogleSignInAccount?> initGooglesignIn() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn(
+            // clientId: _ref.read(firebaseProvider).app.options.androidClientId,
+            )
+        .signIn();
     return googleUser;
   }
 

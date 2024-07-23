@@ -1,11 +1,7 @@
-import 'dart:async';
-
-import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:path_provider/path_provider.dart';
 
 import '../../../config/packages/bottom_bar/bottom_floating.dart';
 import '../../../services/app_providers/service_providers.dart';
@@ -29,8 +25,8 @@ class BottomScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ValueNotifier<int> selectedScreen = useState(0);
-    useEffect(() {
+    ValueNotifier<int> selectedScreen = useState(1);
+    /* useEffect(() {
       Future.delayed(const Duration(seconds: 1), () async {
         String storageLocation =
             (await getApplicationDocumentsDirectory()).path;
@@ -38,7 +34,7 @@ class BottomScreen extends HookConsumerWidget {
             subDir: storageLocation, clearCacheAfter: const Duration(days: 5));
       });
       return null;
-    }, []);
+    }, []); */
     // ValueNotifier<String> paramsHolder = useState("No Params found yet");
 /*     useEffect(() {
       StreamSubscription<Map> streamSubscription =
@@ -78,8 +74,8 @@ class BottomScreen extends HookConsumerWidget {
               fontSize: 9.sp,
             ),
         indexSelected: selectedScreen.value,
-        colorSelected: KColors.blackColor,
-        color: KColors.whiteColor,
+        colorSelected: KColors.whiteColor,
+        color: KColors.blackColor,
         paddingVertical: 24,
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class KColors {
-  WidgetStateProperty<Color> fetchMaterial(Color color) {
+  static WidgetStateProperty<Color> fetchMaterial(Color color) {
     return WidgetStateProperty.all<Color>(color);
   }
 

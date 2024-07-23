@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../utils/constants/k_assets.dart';
@@ -18,7 +19,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
-  late AnimationController scaleController;
+  late AnimationController? scaleController;
   late Animation<double> scaleAnimation;
 
   double _opacity = 0;
@@ -37,16 +38,16 @@ class _SplashScreenState extends State<SplashScreen>
             Timer(
               const Duration(milliseconds: 300),
               () {
-                scaleController.reset();
+                // scaleController?.reset();
               },
             );
-            context.go(KRoutes.authScreen);
+            context.go(KRoutes.bottomScreen);
           }
         },
       );
 
     scaleAnimation =
-        Tween<double>(begin: 0.0, end: 12).animate(scaleController);
+        Tween<double>(begin: 0.0, end: 12).animate(scaleController!);
 
     Timer(const Duration(milliseconds: 600), () {
       setState(() {
@@ -56,16 +57,16 @@ class _SplashScreenState extends State<SplashScreen>
     });
     Timer(const Duration(milliseconds: 2000), () {
       setState(() {
-        scaleController.forward();
+        scaleController?.forward();
       });
     });
   }
 
-  @override
-  void dispose() {
-    scaleController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   scaleController?.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -111,25 +112,33 @@ class _SplashScreenState extends State<SplashScreen>
                 //   borderRadius: BorderRadius.circular(20),
                 // ),
                 child: Center(
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                          KAssets.logo,
-                        ),
+                  child: SizedBox(
+                    width: 175.sp,
+                    height: 175.sp,
+                    // decoration: const BoxDecoration(
+                    //   image: DecorationImage(
+                    //     image: AssetImage(
+                    //       KAssets.logo,
+                    //     ),
+                    //   ),
+                    // ),
+                    child: Hero(
+                      tag: "splash-logo",
+                      child: Image.asset(
+                        KAssets.logo,
+                        width: 175.sp,
+                        height: 175.sp,
                       ),
                     ),
-                    child: AnimatedBuilder(
-                      animation: scaleAnimation,
-                      builder: (c, child) => Transform.scale(
-                        scale: scaleAnimation.value,
-                        child: Image.asset(
-                          KAssets.logo,
-                        ),
-                      ),
-                    ),
+                    // child: AnimatedBuilder(
+                    //   animation: scaleAnimation,
+                    //   builder: (c, child) => Transform.scale(
+                    //     scale: scaleAnimation.value,
+                    //     child: Image.asset(
+                    //       KAssets.logo,
+                    //     ),
+                    //   ),
+                    // ),
                   ),
                 ),
               ),

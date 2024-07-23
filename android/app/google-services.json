@@ -12,7 +12,20 @@
           "package_name": "com.melodymania.songbird"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "789743203068-rm8iolep657v2omnvvaqeocmf7p7k0s6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.melodymania.songbird",
+            "certificate_hash": "32a59dc04c8ee657de50a6ab9b724605a1a270cd"
+          }
+        },
+        {
+          "client_id": "789743203068-pbm92b300psc03dlf6r4ehp9pkvh98ec.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBXEw3lZ_b48mWH_W2dSb9KBaX-iFFnhHE"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "789743203068-pbm92b300psc03dlf6r4ehp9pkvh98ec.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "789743203068-on247csj96a6e8ccd6dstrqu4egnpjd6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.melodymania.songbird"
+              }
+            }
+          ]
         }
       }
     }

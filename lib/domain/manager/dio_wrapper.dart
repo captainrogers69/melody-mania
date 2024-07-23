@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart' as dio;
@@ -19,73 +18,73 @@ class DioWrapper {
     Map<String, dynamic> dioHeaders = headers ?? {};
     dioHeaders[HttpHeaders.contentTypeHeader] = "application/json";
 
-    try {
-      dio.Response response;
-      switch (method) {
-        case DioMethod.post:
-          response = await DioFactory.dio!.post(
-            path,
-            options: Options(
-              headers: dioHeaders,
-            ),
-            data: params,
-          );
-          break;
-        case DioMethod.delete:
-          response = await DioFactory.dio!.delete(
-            path,
-            data: params,
-            options: Options(
-              headers: dioHeaders,
-            ),
-          );
-          break;
-        case DioMethod.getr:
-          response = await DioFactory.dio!.get(
-            path,
-            queryParameters: params,
-            options: Options(
-              headers: dioHeaders,
-            ),
-          );
-          break;
-        case DioMethod.patch:
-          response = await DioFactory.dio!.patch(
-            path,
-            data: params,
-            options: Options(
-              headers: dioHeaders,
-            ),
-          );
-          break;
-        case DioMethod.put:
-          response = await DioFactory.dio!.put(
-            path,
-            data: params,
-            options: Options(
-              headers: headers,
-            ),
-          );
-          break;
-        default:
-          return;
-      }
-
-      onResponse(
-        response.data,
-        DioErrorResponse(
-          error: ErrorResponse(
-            message: "",
-            status: 0,
+    /* try { */
+    dio.Response response;
+    switch (method) {
+      case DioMethod.post:
+        response = await DioFactory.dio!.post(
+          path,
+          options: Options(
+            headers: dioHeaders,
           ),
+          data: params,
+        );
+        break;
+      case DioMethod.delete:
+        response = await DioFactory.dio!.delete(
+          path,
+          data: params,
+          options: Options(
+            headers: dioHeaders,
+          ),
+        );
+        break;
+      case DioMethod.getr:
+        response = await DioFactory.dio!.get(
+          path,
+          queryParameters: params,
+          options: Options(
+            headers: dioHeaders,
+          ),
+        );
+        break;
+      case DioMethod.patch:
+        response = await DioFactory.dio!.patch(
+          path,
+          data: params,
+          options: Options(
+            headers: dioHeaders,
+          ),
+        );
+        break;
+      case DioMethod.put:
+        response = await DioFactory.dio!.put(
+          path,
+          data: params,
+          options: Options(
+            headers: headers,
+          ),
+        );
+        break;
+      default:
+        return;
+    }
+
+    onResponse(
+      response.data,
+      DioErrorResponse(
+        error: ErrorResponse(
+          message: "",
+          status: 0,
         ),
-      );
-      // onError(DioErrorResponse(
-      //     error: ErrorResponse(
-      //   message: "",
-      //   status: 0,
-      // )));
-    } catch (e) {
+      ),
+    );
+    // onError(DioErrorResponse(
+    //     error: ErrorResponse(
+    //   message: "",
+    //   status: 0,
+    // )));
+    /* } catch (e) {
       log('Error message : $e');
       String errorMessage = "";
 
@@ -153,6 +152,6 @@ class DioWrapper {
       //     message: errorMessage,
       //   ),
       // );
-    }
+    } */
   }
 }

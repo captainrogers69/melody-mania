@@ -18,10 +18,10 @@ class AppTheme {
       titleTextStyle: TextStyle(
         //) Kstyles.kAppBarTextStyle.copyWith(
         // fontFamily: KFonts.OpensansSemibold.name,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w700,
         letterSpacing: 0.35,
         color: KColors.whiteColor,
-        fontSize: 13.sp,
+        fontSize: 18.sp,
       ),
     ),
     textTheme: TextTheme(

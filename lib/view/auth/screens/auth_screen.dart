@@ -22,10 +22,13 @@ class AuthScreen extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Image.asset(
-              KAssets.logo,
-              height: 230.sp,
-              width: 230.sp,
+            Hero(
+              tag: "splash-logo",
+              child: Image.asset(
+                KAssets.logo,
+                height: 230.sp,
+                width: 230.sp,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),

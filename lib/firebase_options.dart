@@ -64,6 +64,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '789743203068',
     projectId: 'melodic-mania',
     storageBucket: 'melodic-mania.appspot.com',
+    androidClientId: '789743203068-rm8iolep657v2omnvvaqeocmf7p7k0s6.apps.googleusercontent.com',
+    iosClientId: '789743203068-on247csj96a6e8ccd6dstrqu4egnpjd6.apps.googleusercontent.com',
     iosBundleId: 'com.melodymania.songbird',
   );
 
@@ -73,6 +75,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '789743203068',
     projectId: 'melodic-mania',
     storageBucket: 'melodic-mania.appspot.com',
+    androidClientId: '789743203068-rm8iolep657v2omnvvaqeocmf7p7k0s6.apps.googleusercontent.com',
+    iosClientId: '789743203068-on247csj96a6e8ccd6dstrqu4egnpjd6.apps.googleusercontent.com',
     iosBundleId: 'com.melodymania.songbird',
   );
 
@@ -85,4 +89,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'melodic-mania.appspot.com',
     measurementId: 'G-F579P5FZ94',
   );
+
 }

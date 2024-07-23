@@ -1,7 +1,9 @@
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:path_provider/path_provider.dart';
 
 import 'firebase_options.dart';
 import 'melody_app/melody_app.dart';
@@ -21,4 +23,7 @@ Future<void> main() async {
       child: MelodyApp(),
     ),
   );
+  String storageLocation = (await getApplicationDocumentsDirectory()).path;
+  await FastCachedImageConfig.init(
+      subDir: storageLocation, clearCacheAfter: const Duration(days: 5));
 }

@@ -15,10 +15,10 @@ class SaavnService {
     await DioWrapper.request(
       path: "$baseUrl/${_routes.searchwithQuery}?query=$query",
       params: {},
-      onResponse: (response, error) {
-        // log("Response: ${response}");
-        searchResponse = SongsSearchResponse.fromJson(response);
-      },
+      // onResponse: (response, error) {
+      //   // log("Response: ${response}");
+      //   searchResponse = SongsSearchResponse.fromJson(response);
+      // },
     );
     return searchResponse;
   }

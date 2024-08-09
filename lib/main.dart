@@ -27,3 +27,18 @@ Future<void> main() async {
   await FastCachedImageConfig.init(
       subDir: storageLocation, clearCacheAfter: const Duration(days: 5));
 }
+
+
+/*
+//Setting SysemUIOverlay
+SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    systemStatusBarContrastEnforced: true,
+    systemNavigationBarColor: Colors.transparent,
+    systemNavigationBarDividerColor: Colors.transparent,
+    systemNavigationBarIconBrightness: Brightness.dark,
+    statusBarIconBrightness: Brightness.dark)
+);
+    
+//Setting SystmeUIMode
+SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge, overlays: [SystemUiOverlay.top]);
+*/

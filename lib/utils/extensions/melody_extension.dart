@@ -16,6 +16,14 @@ final List<BoxShadow> eventTopBoxShadow = [
   )
 ];
 
+final List<BoxShadow> eventTopBoxWhiteShadow = [
+  const BoxShadow(
+    offset: Offset(-12, -12),
+    blurRadius: 12,
+    color: Color.fromRGBO(255, 255, 255, 0.068),
+  )
+];
+
 final Border stanBorder = Border.all(color: Colors.black, width: 1.5);
 final Border stanBlueBorder = Border.all(color: Colors.black, width: 1.5);
 final Border smallBorder = Border.all(color: Colors.black);

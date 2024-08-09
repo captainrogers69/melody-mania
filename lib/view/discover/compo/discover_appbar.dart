@@ -30,7 +30,7 @@ class DiscoverAppbar extends StatelessWidget {
       leading: IconButton(
         onPressed: () {},
         icon: ProfileAvatar(
-          avatarUrl: MelodyUtils.kAvatar,
+          avatarUrl: KUtils.kAvatar,
           heightWidth: 30.sp,
         ),
       ),

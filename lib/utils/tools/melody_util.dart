@@ -2,9 +2,12 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-class MelodyUtils {
+class KUtils {
   static String kAvatar =
       'https://firebasestorage.googleapis.com/v0/b/melodic-mania.appspot.com/o/83895813_2495299650725786_9031145110460432384_n.jpg?alt=media&token=cb604a48-ae29-499a-b46c-be30992d2fbb';
+
+  static String kCover =
+      'https://assets.toptal.io/images?url=https%3A%2F%2Fbs-uploads.toptal.io%2Fblackfish-uploads%2Fcomponents%2Fblog_post_page%2F4090809%2Fcover_image%2Fregular_1708x683%2Fcover-0408-FlutterMessangerDemo-Luke_Newsletter-6a828e695b9814933d964c8039a1f7a8.png';
 
   static const freeScrollPhysics = BouncingScrollPhysics(
     parent: ClampingScrollPhysics(),

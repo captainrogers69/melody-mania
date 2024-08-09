@@ -59,6 +59,11 @@ dependencies:
   flutter_screenutil: ^5.9.3
   hive_flutter: ^1.1.0
   cloud_firestore: ^4.17.5
+  custom_refresh_indicator: ^4.0.1
+  freezed_annotation: ^2.4.4
+  youtube_explode_dart: ^2.2.1
+  just_audio: ^0.9.39
+  http: ^1.2.2
   # url_launcher: ^6.3.0
   # app_links: ^6.1.4
   # audio_service: ^0.18.14
@@ -69,6 +74,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  integration_test:
+    sdk: flutter
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -76,6 +83,9 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
+  build_runner: ^2.4.11
+  freezed: ^2.5.2
+  json_serializable: ^6.8.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -3,6 +3,7 @@ import 'package:songbird/services/remote_services/saavn_services.dart';
 
 import '../../view/auth/providers/auth_provider.dart';
 import '../../view/bottom/providers/bottom_provider.dart';
+import '../../view/home/screens/home_screen.dart';
 import '../remote_services/auth_service.dart';
 
 final authProvider = ChangeNotifierProvider<AuthProvider>((ref) {
@@ -14,7 +15,11 @@ final authServiceProvider = Provider<AuthService>((ref) {
 });
 
 final bottomProvider = ChangeNotifierProvider<BottomProvider>((ref) {
-  return BottomProvider(ref);
+  return BottomProvider();
+});
+
+final homeProvider = ChangeNotifierProvider<HomeProvider>((ref) {
+  return HomeProvider(ref);
 });
 
 // final spotifyServiceProvider = Provider<SpotifyService>((ref) {

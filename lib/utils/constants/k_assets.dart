@@ -25,4 +25,8 @@ class KAssets {
   static const String library = '$ast/$icn/library.png';
   static const String account = '$ast/$icn/account-.png';
   static const String accountfill = '$ast/$icn/account-fill.png';
+
+  static const String hexBottom = "$ast/$vct/AE Logo.png";
+  static const String search22 = "$ast/$vct/search_4687318.png";
+  static const String simular = '$ast/$vct/simulator.png';
 }

@@ -24,7 +24,7 @@ class BrowseCategoriesResponse {
         errorCode: 0,
         errorMessage: "",
         categories: json["categories"].runtimeType.toString() ==
-                MelodyUtils.dataTypeJsonValidator
+                KUtils.dataTypeJsonValidator
             ? Categories.fromJson(json["categories"])
             : null,
       );
@@ -58,13 +58,13 @@ class Categories {
   factory Categories.fromJson(Map<String, dynamic> json) => Categories(
         href: json["href"],
         items: json["items"].runtimeType.toString() ==
-                MelodyUtils.dataTypeListValidator
+                KUtils.dataTypeListValidator
             ? List<Category>.from(
                 json["items"].map(
-                  (x) => x.runtimeType.toString() ==
-                          MelodyUtils.dataTypeJsonValidator
-                      ? Category.fromJson(x)
-                      : null,
+                  (x) =>
+                      x.runtimeType.toString() == KUtils.dataTypeJsonValidator
+                          ? Category.fromJson(x)
+                          : null,
                 ),
               )
             : [],

@@ -2,6 +2,8 @@
 //
 //     final songsSearchResponse = songsSearchResponseFromJson(jsonString);
 
+// ignore_for_file: constant_identifier_names
+
 import 'dart:convert';
 
 SongsSearchResponse songsSearchResponseFromJson(String str) =>

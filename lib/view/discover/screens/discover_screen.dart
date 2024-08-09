@@ -3,13 +3,15 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../components/k_fetching.dart';
 import '../../../config/theme/app_theme.dart';
 import '../../../domain/models/response/saavn/search_songs_response.dart';
 import '../../../services/app_providers/service_providers.dart';
 import '../../../utils/constants/k_colors.dart';
 import '../../../utils/constants/k_routes.dart';
 import '../compo/discover_appbar.dart';
+
+final GlobalKey<ScaffoldMessengerState> snackBarKey =
+    GlobalKey<ScaffoldMessengerState>();
 
 final browseCategoriesFutureProvider =
     FutureProvider<SongsSearchResponse>((ref) async {
@@ -24,18 +26,23 @@ class DiscoverScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ScrollController scrolling = useScrollController();
+    AnimationController animationController = useAnimationController();
     return Scaffold(
+      // backgroundColor: KColors.whiteColor,
+      extendBodyBehindAppBar: true,
       body: SafeArea(
         child: Theme(
           data: AppTheme.darkTheme.copyWith(
-              scrollbarTheme: ScrollbarThemeData(
-            thumbColor: KColors.fetchMaterial(KColors.whiteColor),
-            trackColor: KColors.fetchMaterial(KColors.whiteColor),
-          )),
-          child: Scrollbar(
+            highlightColor: Colors.red,
+            // scrollbarTheme: ScrollbarThemeData(
+            //   thumbColor: KColors.fetchMaterial(KColors.whiteColor),
+            //   trackColor: KColors.fetchMaterial(KColors.whiteColor),
+            //   trackBorderColor: KColors.fetchMaterial(KColors.whiteColor),
+          ),
+          child: RawScrollbar(
             controller: scrolling,
-            thumbVisibility: true,
-            trackVisibility: true,
+            radius: const Radius.circular(90),
+            // thickness: 90,
             child: CustomScrollView(
               controller: scrolling,
               // physics: const ClampingScrollPhysics(),
@@ -46,12 +53,17 @@ class DiscoverScreen extends HookConsumerWidget {
                   floating: true,
                   delegate: DiscoverAppbarDelegate(
                     expandedHeight: kToolbarHeight,
-                    onTap: () {},
+                    onTap: () {
+                      ref.read(homeProvider).getDownloadUrl();
+                      // ref.read(snackKeyProvider).showingSnackBar("Hey you ");
+                      // ref.read(snackProvider("Hey there buddy "));
+                      // context.showSnackBar("Hey tehrer your");
+                    },
                   ),
                 ),
-                SliverFillRemaining(
+                /* SliverFillRemaining(
                   hasScrollBody: true,
-                  // fillOverscroll: true,
+                  fillOverscroll: true,
                   child: ref.watch(browseCategoriesFutureProvider).when(
                     data: (data) {
                       return CommonComponent(data: data);
@@ -69,7 +81,7 @@ class DiscoverScreen extends HookConsumerWidget {
                       return const EventButtonFetching();
                     },
                   ),
-                ),
+                ), */
                 /* SliverList(delegate: SliverChildBuilderDelegate(// SliverChildListDelegate()
                   childCount: 1,
                   (context, index) {
@@ -77,10 +89,25 @@ class DiscoverScreen extends HookConsumerWidget {
                   },
                 ), ), */
                 /* SliverToBoxAdapter(
-                  child:  
-                          
+                  child: ref.watch(browseCategoriesFutureProvider).when(
+                    data: (data) {
+                      return CommonComponent(data: data);
+                    },
+                    error: (error, stackTrace) {
+                      return Text(
+                        "$error popop",
+                        style:
+                            Theme.of(context).textTheme.labelMedium!.copyWith(
+                                  color: KColors.whiteColor,
+                                ),
+                      );
+                    },
+                    loading: () {
+                      return const EventButtonFetching();
+                    },
                   ),
                 ), */
+
                 // CupertinoScrollbar(
                 //   controller: scrolling,
                 //   thicknessWhileDragging: 50,
@@ -142,26 +169,6 @@ class CommonComponent extends ConsumerWidget {
             },
           ),
         ),
-        // Sbh(h: 40.sp),
-        // Padding(
-        //   padding: EdgeInsets.symmetric(horizontal: 10.sp),
-        //   child: ListView.builder(
-        //     shrinkWrap: true,
-        //     physics: const ClampingScrollPhysics(),
-        //     itemCount: 90,
-        //     // (data.data?.results ?? []).length,
-        //     itemBuilder: (BuildContext context, int index) {
-        //       // return const Text('[]');
-        //       final temp = (data.data?.results ?? [])[0];
-        //       return Text(
-        //         temp.name.toString(),
-        //         style: Theme.of(context).textTheme.titleMedium!.copyWith(
-        //               color: KColors.whiteColor,
-        //             ),
-        //       );
-        //     },
-        //   ),
-        // ),
       ],
     );
   }

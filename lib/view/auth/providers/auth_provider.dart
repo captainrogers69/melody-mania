@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class AuthProvider with ChangeNotifier {
-  final Ref _ref;
-  AuthProvider(this._ref);
+  // final Ref _ref;
+  AuthProvider();
 
   bool _googleLoginInProgress = false;
   bool get googleLoginInProgress => _googleLoginInProgress;

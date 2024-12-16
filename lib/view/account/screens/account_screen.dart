@@ -55,7 +55,7 @@ class AccountScreen extends HookConsumerWidget {
         child: CustomScrollView(
           slivers: [
             // Sbh(h: 200.sp),
-            MelodyAppbar(
+            MelodySliverAppbar(
               leading: IconButton(
                 onPressed: () {},
                 icon: const Icon(

@@ -1,10 +1,6 @@
-import 'package:dio/dio.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-
 class ApiService {
-  final Ref _ref;
-  final Dio _dio;
-  ApiService(this._ref, this._dio);
+  // final Ref _ref;
+  ApiService(/* this._ref */);
 
   /// Discovery APIs End Points
   // final _routes = DiscoveryRoutes.instance;

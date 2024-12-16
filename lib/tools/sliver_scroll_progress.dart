@@ -113,7 +113,7 @@ class SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final Widget child;
 
   @override
-  double get maxExtent => expandedHeight + expandedHeight / 2;
+  double get maxExtent => expandedHeight; // + expandedHeight / 2;
 
   @override
   double get minExtent => kToolbarHeight;

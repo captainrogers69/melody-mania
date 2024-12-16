@@ -24,6 +24,7 @@ class KUtils {
       final green = random.nextInt(256);
       final blue = random.nextInt(256);
       final colorValue = (red << 16) | (green << 8) | blue;
+      // ignore: deprecated_member_use
       return Color(colorValue).withOpacity(1.0);
     });
   }

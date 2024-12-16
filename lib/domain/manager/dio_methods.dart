@@ -13,8 +13,6 @@ extension DioMethods on DioMethod {
         return 'POST';
       case DioMethod.put:
         return 'PUT';
-      default:
-        return null;
     }
   }
 }

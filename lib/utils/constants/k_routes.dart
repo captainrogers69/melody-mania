@@ -7,4 +7,5 @@ class KRoutes {
   static const String yourLibraryScreen = '/yourLibraryScreen';
   static const String accountScreen = '/accountScreen';
   static const String webLoginScreen = '/webLoginScreen';
+  // static const String finalView = '/finalView';
 }

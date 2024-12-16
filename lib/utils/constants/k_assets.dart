@@ -29,4 +29,6 @@ class KAssets {
   static const String hexBottom = "$ast/$vct/AE Logo.png";
   static const String search22 = "$ast/$vct/search_4687318.png";
   static const String simular = '$ast/$vct/simulator.png';
+
+  static const String ss = '$ast/$img/ss.png';
 }

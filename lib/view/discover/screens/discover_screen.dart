@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:songbird/view/library/compo/library_appbar.dart';
 
 import '../../../config/theme/app_theme.dart';
 import '../../../domain/models/response/saavn/search_songs_response.dart';
@@ -26,10 +27,10 @@ class DiscoverScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ScrollController scrolling = useScrollController();
-    AnimationController animationController = useAnimationController();
+    // AnimationController animationController = useAnimationController();
     return Scaffold(
       // backgroundColor: KColors.whiteColor,
-      extendBodyBehindAppBar: true,
+      // extendBodyBehindAppBar: true,
       body: SafeArea(
         child: Theme(
           data: AppTheme.darkTheme.copyWith(
@@ -48,16 +49,28 @@ class DiscoverScreen extends HookConsumerWidget {
               // physics: const ClampingScrollPhysics(),
               slivers: [
                 const DiscoverAppbar(),
-                SliverPersistentHeader(
-                  pinned: true,
-                  floating: true,
-                  delegate: DiscoverAppbarDelegate(
-                    expandedHeight: kToolbarHeight,
-                    onTap: () {
-                      ref.read(homeProvider).getDownloadUrl();
-                      // ref.read(snackKeyProvider).showingSnackBar("Hey you ");
-                      // ref.read(snackProvider("Hey there buddy "));
-                      // context.showSnackBar("Hey tehrer your");
+                // SliverPersistentHeader(
+                //   pinned: true,
+                //   floating: true,
+                //   delegate: SliverAppBarDelegate(
+                //     expandedHeight: 56,
+                //     child: DiscoverTextfield(
+                //       onTap: () {},
+                //     ),
+                //   ),
+                // ),
+                const LibraryAppbar(),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    childCount: 100,
+                    (context, index) {
+                      return Text(
+                        "$index",
+                        style: const TextStyle(
+                          color: KColors.whiteColor,
+                          fontSize: 20,
+                        ),
+                      );
                     },
                   ),
                 ),

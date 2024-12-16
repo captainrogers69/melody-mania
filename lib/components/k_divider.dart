@@ -105,6 +105,7 @@ class AboutDivider extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: horizontal ?? 20),
       child: Divider(
+        // ignore: deprecated_member_use
         color: color ?? Colors.black.withOpacity(0.6),
       ),
     );

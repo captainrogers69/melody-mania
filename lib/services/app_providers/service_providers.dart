@@ -7,7 +7,7 @@ import '../../view/home/screens/home_screen.dart';
 import '../remote_services/auth_service.dart';
 
 final authProvider = ChangeNotifierProvider<AuthProvider>((ref) {
-  return AuthProvider(ref);
+  return AuthProvider();
 });
 
 final authServiceProvider = Provider<AuthService>((ref) {
@@ -19,7 +19,7 @@ final bottomProvider = ChangeNotifierProvider<BottomProvider>((ref) {
 });
 
 final homeProvider = ChangeNotifierProvider<HomeProvider>((ref) {
-  return HomeProvider(ref);
+  return HomeProvider();
 });
 
 // final spotifyServiceProvider = Provider<SpotifyService>((ref) {

@@ -73,16 +73,6 @@ class DioWrapper {
             ),
           );
           break;
-        default:
-          response = await DioFactory.dio!.post(
-            path,
-            cancelToken: cancelToken,
-            options: Options(
-              headers: dioHeaders,
-            ),
-            data: params,
-          );
-          break;
       }
 
       // onResponse(

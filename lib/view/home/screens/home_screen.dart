@@ -4,10 +4,10 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:http/http.dart';
-import 'package:songbird/components/k_fetching.dart';
-import 'package:songbird/utils/constants/k_colors.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
+import '../../../components/k_fetching.dart';
+import '../../../utils/constants/k_colors.dart';
 import '../../../utils/constants/k_routes.dart';
 import '../provider/home_provider.dart';
 
@@ -16,13 +16,7 @@ class HomeScreen extends HookConsumerWidget {
   const HomeScreen({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    /* final state = ref.watch(homeProvider).categoryState;
-    useEffect(() {
-      ref.read(homeProvider).fetchCategories();
-      return null;
-    }, []); */
     return Scaffold(
-      // backgroundColor: KColors.whiteColor,
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
@@ -84,55 +78,15 @@ class HomeScreen extends HookConsumerWidget {
               ],
             ),
           ),
-          // SliverList(
-          //   delegate: SliverChildBuilderDelegate(
-          //     childCount:
-          //         (state categories?.categories ?? []).length,
-          //     (context, index) {
-          //       CategoryItem category =
-          //           (ref.watch(homeProvider).categories?.categories ??
-          //               [])[index];
-          //       return ListTile(
-          //         onTap: () {},
-          //         leading: Text("${index + 1}."),
-          //         title: Text(category.name.toString()),
-          //         subtitle: Text(category.slug.toString()),
-          //         trailing: CircleAvatar(
-          //           backgroundColor: KColors.grey300,
-          //           radius: 7,
-          //           child: CircleAvatar(
-          //             radius: 5,
-          //             backgroundColor:
-          //                 Theme.of(context).scaffoldBackgroundColor,
-          //           ),
-          //         ),
-          //       );
-          //     },
-          //   ),
-          // ),
         ],
       ),
     );
   }
 }
-/* 
-class ContWi extends StatelessWidget {
-  final Color? color;
-  const ContWi({this.color, super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: color ?? KColors.errorColor,
-      width: 100.w,
-      height: 35.h,
-    );
-  }
-} */
 
 class HomeProvider with ChangeNotifier {
-  final Ref _ref;
-  HomeProvider(this._ref);
+  // final Ref _ref;
+  HomeProvider();
 
   static const String searchAuthority = 'www.youtube.com';
   static const Map paths = {

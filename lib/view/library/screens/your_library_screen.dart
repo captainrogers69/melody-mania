@@ -1,17 +1,14 @@
 // import 'dart:developer' as dev;
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:songbird/view/discover/compo/discover_textfield.dart';
 
-import '../../../components/cache_image.dart';
 import '../../../components/sizing_box.dart';
 import '../../../utils/constants/k_assets.dart';
 import '../../../utils/constants/k_colors.dart';
 import '../../../utils/constants/k_routes.dart';
 import '../../../utils/constants/k_styles.dart';
-import '../../../utils/tools/melody_util.dart';
 
 class YourLibraryScreen extends HookConsumerWidget {
   static const String id = KRoutes.homeScreen;
@@ -20,16 +17,74 @@ class YourLibraryScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // ScrollController controller = useScrollController();
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      // backgroundColor: KColors.whiteColor,
+      // extendBodyBehindAppBar: true,
+      // backgroundColor: KColors.primaryColor,
       body: CustomScrollView(
         // controller: controller,
         // physics: const BouncingScrollPhysics(),
         slivers: [
+          // SliverAppBar(
+          //   backgroundColor: KColors.errorColor,
+          //   pinned: true,
+          //   leading: IconButton(
+          //     onPressed: () {},
+          //     icon: const Icon(
+          //       Icons.menu,
+          //       color: KColors.whiteColor,
+          //     ),
+          //   ),
+          //   actions: [
+          //     IconButton(
+          //       icon: const Icon(
+          //         Icons.notifications,
+          //         color: KColors.whiteColor,
+          //       ),
+          //       onPressed: () {},
+          //     )
+          //   ],
+          // ),
+          // const LibraryAppbar(),
           SliverAppBar(
             pinned: true,
-            expandedHeight: 300.0,
-            backgroundColor: KColors.primaryColor,
+            expandedHeight: 100,
+            backgroundColor: KColors.errorColor,
+            title: const AddressHomeHeader(),
+            flexibleSpace: FlexibleSpaceBar(
+              title: Container(
+                color: Colors.white,
+                // width: 100,
+                child: DiscoverTextfield(
+                  height: kToolbarHeight - 20,
+                  onTap: () {},
+                ),
+              ),
+            ),
+          ),
+
+          /* SliverAppBar(
+            stretch: true,
+            backgroundColor: Colors.red,
+            pinned: false,
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const AddressHomeHeader(),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.notifications,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SliverAppBar(
+            snap: true,
+            pinned: false,
+            floating: true,
+            title: DiscoverTextfield(
+              onTap: () {},
+            ),
             flexibleSpace: FlexibleSpaceBar(
               background: CacheImage(
                 image: KUtils.kCover,
@@ -38,66 +93,65 @@ class YourLibraryScreen extends HookConsumerWidget {
                 roundCorner: 0,
               ),
             ),
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 5.sp),
-                  child: const AddressHomeHeader(),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
-                  child: IconButton(
-                    onPressed: () async {
-                      context.push(KRoutes.accountScreen);
-                    },
-                    icon: Badge(
-                      label: Text(
-                        "3",
-                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              color: KColors.whiteColor,
-                              fontSize: 9.sp,
-                            ),
-                      ),
-                      largeSize: 13.5.sp,
-                      backgroundColor: KColors.errorColor,
-                      child: const Icon(
-                        Icons.notifications,
-                        color: KColors.whiteColor,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SliverAppBar(
+          ), */
+          /* SliverAppBar(
             pinned: true,
-            elevation: 0,
+            snap: true,
+            floating: true,
+            // expandedHeight: AppBar().preferredSize.height,
+            // expandedHeight: 300.0,
+            backgroundColor: KColors.primaryColor,
+            title: Text(
+              "Zomato Appbar",
+              style: Theme.of(context).appBarTheme.titleTextStyle,
+            ),
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.pin,
-              background: CupertinoSearchTextField(
-                backgroundColor: KColors.whiteColor,
+              background: DiscoverTextfield(
+                // height: 20.sp,
+                onTap: () {},
               ),
             ),
-          ),
-          /* SliverPersistentHeader(
-            pinned: true,
-            floating: true,
-            delegate: DiscoverAppbarDelegate(
-              expandedHeight: kToolbarHeight,
-              onTap: () {
-                ref.read(snackKeyProvider).showingSnackBar("Hey you ");
-                // ref.read(snackProvider("Hey there buddy "));
-                // context.showSnackBar("Hey tehrer your");
-              },
-            ),
           ), */
-          /* SliverPersistentHeader(
-            pinned: true,
-            floating: true,
-            delegate: SliverAppBarDelegate(
-              child: CacheImage(
+          // SliverAppBar(
+          //   pinned: true,
+          //   // expandedHeight: AppBar().preferredSize.height,
+          //   // primary: true,
+          //   title:
+          // ),
+          // SliverPersistentHeader(
+          //   pinned: true,
+          //   floating: true,
+          //   delegate: DiscoverAppbarDelegate(
+          //     expandedHeight: kToolbarHeight,
+          //     onTap: () {
+          //       ref.read(homeProvider).getDownloadUrl();
+          //       // ref.read(snackKeyProvider).showingSnackBar("Hey you ");
+          //       // ref.read(snackProvider("Hey there buddy "));
+          //       // context.showSnackBar("Hey tehrer your");
+          //     },
+          //   ),
+          // ),
+          // SliverPadding(
+          //   padding: EdgeInsets.only(top: 10.sp),
+          //   sliver: SliverPersistentHeader(
+          //     pinned: true,
+          //     floating: true,
+          //     delegate: DiscoverAppbarDelegate(
+          //       expandedHeight: kToolbarHeight,
+          //       onTap: () {
+          //         ref.read(snackKeyProvider).showingSnackBar("Hey you ");
+          //         // ref.read(snackProvider("Hey there buddy "));
+          //         // context.showSnackBar("Hey tehrer your");
+          //       },
+          //     ),
+          //   ),
+          // ),
+          /*  SliverAppBar(
+            pinned: false,
+            elevation: 0,
+            flexibleSpace: FlexibleSpaceBar(
+              background: CacheImage(
                 image: KUtils.kCover,
                 width: 100.w,
                 height: 42.w,
@@ -105,40 +159,10 @@ class YourLibraryScreen extends HookConsumerWidget {
               ),
             ),
           ), */
-          /* SliverAppBar(
-            expandedHeight: 100.w * 5 / 4 - 25.sp,
-            pinned: true,
-            floating: false,
-            // toolbarHeight: 114,
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            // title: ,
-            flexibleSpace: const Stack(
-              children: [
-                // CacheImage(
-                //   image: KUtils.kCover,
-                //   width: 100.w,
-                //   height: 42.w,
-                //   roundCorner: 0,
-                // ),
-                // FlexibleSpaceBar(
-                //   collapseMode: CollapseMode.pin,
-                //   background: InkWell(
-                //     onTap: () {},
-                //     child: Image.asset(
-                //       KAssets.simular,
-                //       height: 100.w * 5 / 4,
-                //       fit: BoxFit.fitWidth,
-                //       // roundCorner: 0,
-                //       width: 100.w,
-                //     ),
-                //   ),
-                // ),
-              ],
-            ),
-          ), */
+          /*  */
           SliverList(
             delegate: SliverChildBuilderDelegate(
+              childCount: 100,
               (context, index) {
                 return Text(
                   "$index",
@@ -149,7 +173,20 @@ class YourLibraryScreen extends HookConsumerWidget {
                 );
               },
             ),
-            /* delegate: SliverChildListDelegate([
+          ),
+          /* SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return Text(
+                  "$index",
+                  style: const TextStyle(
+                    color: KColors.whiteColor,
+                    fontSize: 20,
+                  ),
+                );
+              },
+            ), */
+          /* delegate: SliverChildListDelegate([
               ListView.builder(
                 shrinkWrap: true,
                 itemCount: 45,
@@ -166,7 +203,6 @@ class YourLibraryScreen extends HookConsumerWidget {
                 },
               ),
             ]), */
-          ),
         ],
       ),
     );

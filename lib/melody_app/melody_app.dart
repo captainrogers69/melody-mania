@@ -23,6 +23,7 @@ class MelodyApp extends HookConsumerWidget {
           },
           child: MaterialApp.router(
             title: 'Songbird',
+            themeMode: ThemeMode.system,
             theme: AppTheme.darkTheme,
             darkTheme: AppTheme.darkTheme,
             routerConfig: ref.read(goRouting),

@@ -6,7 +6,12 @@ import '../../../utils/constants/k_colors.dart';
 
 class DiscoverTextfield extends StatelessWidget {
   final void Function() onTap;
-  const DiscoverTextfield({required this.onTap, super.key});
+  final double height;
+  const DiscoverTextfield({
+    this.height = kToolbarHeight,
+    required this.onTap,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +20,10 @@ class DiscoverTextfield extends StatelessWidget {
       splashColor: KColors.transparentColor,
       highlightColor: KColors.transparentColor,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 12.sp, vertical: 10.sp),
-        margin: EdgeInsets.symmetric(horizontal: 10.sp),
+        height: height,
+        padding: EdgeInsets.symmetric(vertical: 8.sp, horizontal: 12.sp),
+        // padding: EdgeInsets.symmetric(horizontal: 12.sp, vertical: 10.sp),
+        // margin: EdgeInsets.symmetric(horizontal: 10.sp),
         decoration: BoxDecoration(
           color: KColors.whiteColor,
           borderRadius: BorderRadius.circular(6),
@@ -42,10 +49,8 @@ class DiscoverTextfield extends StatelessWidget {
                 decoration: InputDecoration(
                   isCollapsed: true,
                   hintText: 'What do you want to listen to?',
-                  hintStyle: Theme.of(context)
-                      .textTheme
-                      .titleSmall!
-                      .copyWith(fontWeight: FontWeight.w400),
+                  hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                      fontWeight: FontWeight.w400, color: KColors.blackColor),
                   border: InputBorder.none,
                 ),
                 style: Theme.of(context).textTheme.titleSmall,
